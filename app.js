@@ -44,11 +44,11 @@ app.use(async (req, res, next) => {
   res.locals.user = req.user || null;
   next();
 });
-// الراوترات
+// files router 
 app.use('/events', events);
 app.use('/users', users);
 
-// الراوت الرئيسي
+// main router 
 app.get('/', (req, res) => {
   res.redirect('/events');
 });
