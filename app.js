@@ -8,7 +8,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const passportSetup = require('./config/passport-setup');
 
-// إعداد محرك العرض
+// steting for views 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
