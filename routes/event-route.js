@@ -11,7 +11,7 @@ const isAuthenticated = (req, res, next) => {
   res.redirect('/users/login');
 };
 
-// ✅ عرض صفحة إنشاء الحدث
+// ✅ Show Page New Create 
 router.get('/create', isAuthenticated, (req, res) => {
   res.render('event/create', {
     errors: req.flash('errors')
