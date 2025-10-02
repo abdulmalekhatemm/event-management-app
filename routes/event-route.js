@@ -18,7 +18,7 @@ router.get('/create', isAuthenticated, (req, res) => {
   });
 });
 
-// ✅ حفظ الحدث الجديد
+// save new event   
 router.post('/create',
   [
     check('title').isLength({ min: 5 }).withMessage('Title should be more than 5 characters'),
@@ -55,7 +55,7 @@ router.post('/create',
     }
   })
 
-// ✅ عرض صفحة تعديل حدث
+// ✅ show page update event 
 router.get('/edit/:id', isAuthenticated, async (req, res, next) => {
   try {
     const event = await Event.findById(req.params.id);
@@ -73,7 +73,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res, next) => {
   }
 });
 
-// ✅ تعديل الحدث
+//updata events 
 router.post(
   '/update',
   [
@@ -141,14 +141,14 @@ router.get('/', async (req, res, next) => {
       .limit(limit)
       .lean();
 
-    // تقسيم الأحداث chunks لعرضها على شكل أعمدة مثلاً
+    //show from ship column divide events  
     const chunkSize = 3;
     const chunk = [];
     for (let i = 0; i < events.length; i += chunkSize) {
       chunk.push(events.slice(i, i + chunkSize));
     }
 
-    // عرض القالب
+    // shwo the mold 
     res.render("event/index", {
       chunk: chunk,
       currentPage: pageNo,
@@ -162,7 +162,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// ✅ عرض حدث مفرد
+// ✅ show single event
 router.get('/show/:id', async (req, res, next) => {
   try {
     const event = await Event.findById(req.params.id);
