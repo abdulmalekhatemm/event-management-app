@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 const moment = require('moment');
 const currentDate = moment().format('YYYY-MM-DD');
 
-// Middleware: التحقق من تسجيل الدخول
+// Middleware:check  from signup  التحقق من تسجيل الدخول
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
   res.redirect('/users/login');
@@ -47,7 +47,7 @@ router.post('/create',
       await newEvent.save();
       req.flash('info', 'The event was created successfully');
 
-      // 👇 هذا السطر هو التعديل الأهم
+      // 👇This Line It Updata Is Important 
       res.redirect('/events');
     } catch (err) {
       console.error(err);
@@ -109,7 +109,7 @@ router.post(
   }
 );
 
-// ✅ حذف حدث
+// ✅ deleted event حذف حدث
 router.delete('/delete/:id', isAuthenticated, async (req, res) => {
   try {
     const result = await Event.deleteOne({ _id: req.params.id });

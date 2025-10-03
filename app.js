@@ -17,12 +17,12 @@ app.set('views', __dirname + '/views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// الملفات الثابتة
+// static Folders   
 app.use(express.static('public'));
 app.use(express.static('uploads'));
 app.use(express.static('node_modules'));
 
-// إعداد السيشن والفلاش
+// settings session and falsh
 app.use(session({
   secret: 'lorem ipsum',
   resave: false,
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
   res.redirect('/events');
 });
 
-// تشغيل الخادم
+// Run Server 
 app.listen(3000, () => {
   console.log('Server is listening on port 3000');
 });
