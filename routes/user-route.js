@@ -39,7 +39,7 @@ router.post('/login', (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) return next(err);
 
-      req.flash('success', 'مرحباً بعودتك!');
+      req.flash('success', 'welcome forward !');
       return res.redirect('/users/profile');
     });
   })(req, res, next);
@@ -59,7 +59,7 @@ router.post('/signup', (req, res, next) => {
     if (err) return next(err);
     if (!user) return res.redirect('/users/signup');
 
-    // تسجيل الدخول بعد إنشاء المستخدم
+    // signup afeter signup user   
     req.logIn(user, (err) => {
       if (err) return next(err);
       req.flash('success', 'تم إنشاء الحساب بنجاح');
@@ -100,7 +100,7 @@ router.get('/logout', (req, res, next) => {
       return next(err); // مرر الخطأ إذا حصل مشكلة أثناء الخروج
     }
     req.flash('success', 'تم تسجيل الخروج بنجاح');
-    res.redirect('/users/login'); // عد إلى صفحة تسجيل الدخول
+    res.redirect('/users/login'); // rturn from page signup 
   });
 });
 
