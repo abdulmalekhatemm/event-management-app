@@ -97,7 +97,7 @@ router.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
 router.get('/logout', (req, res, next) => {
   req.logout((err) => {
     if (err) {
-      return next(err); // مرر الخطأ إذا حصل مشكلة أثناء الخروج
+      return next(err); //if proplem happen  error مرر الخطأ إذا حصل مشكلة أثناء الخروج
     }
     req.flash('success', 'تم تسجيل الخروج بنجاح');
     res.redirect('/users/login'); // rturn from page signup 

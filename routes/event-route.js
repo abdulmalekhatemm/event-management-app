@@ -109,7 +109,7 @@ router.post(
   }
 );
 
-// ✅ deleted event حذف حدث
+// ✅ deleted event 
 router.delete('/delete/:id', isAuthenticated, async (req, res) => {
   try {
     const result = await Event.deleteOne({ _id: req.params.id });
@@ -131,11 +131,11 @@ router.get('/', async (req, res, next) => {
     const limit = 5;
     const skip = (pageNo - 1) * limit;
 
-    // إجمالي عدد الأحداث
+    //count events  إجمالي عدد الأحداث
     const totalDocs = await Event.countDocuments({});
     const totalPages = Math.ceil(totalDocs / limit);
 
-    // جلب الأحداث لهذه الصفحة
+    //get event for this page  جلب الأحداث لهذه الصفحة
     const events = await Event.find({})
       .skip(skip)
       .limit(limit)
