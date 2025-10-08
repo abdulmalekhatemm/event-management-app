@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 const moment = require('moment');
 const currentDate = moment().format('YYYY-MM-DD');
 
-// Middleware:check  from signup  التحقق من تسجيل الدخول
+// Middleware:check  from signup     
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
   res.redirect('/users/login');
@@ -124,18 +124,18 @@ router.delete('/delete/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-// صفحة عرض الأحداث مع الترقيم باستخدام query string
+// Page Show Events With Nubers Using Qurey String    
 router.get('/', async (req, res, next) => {
   try {
-    const pageNo = parseInt(req.query.page) || 1; // أخذ رقم الصفحة من query string
+    const pageNo = parseInt(req.query.page) || 1; //Take Number Page From Query String  
     const limit = 5;
     const skip = (pageNo - 1) * limit;
 
-    //count events  إجمالي عدد الأحداث
+    //count number events  
     const totalDocs = await Event.countDocuments({});
     const totalPages = Math.ceil(totalDocs / limit);
 
-    //get event for this page  جلب الأحداث لهذه الصفحة
+    //get event for this page 
     const events = await Event.find({})
       .skip(skip)
       .limit(limit)
@@ -158,7 +158,7 @@ router.get('/', async (req, res, next) => {
 
   } catch (error) {
     console.error(error);
-    res.status(500).send("خطأ في تحميل الأحداث");
+    res.status(500).send(" Error In Upload Events    ");
   }
 })
 

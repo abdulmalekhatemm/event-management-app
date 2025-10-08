@@ -62,7 +62,7 @@ router.post('/signup', (req, res, next) => {
     // signup afeter signup user   
     req.logIn(user, (err) => {
       if (err) return next(err);
-      req.flash('success', 'تم إنشاء الحساب بنجاح');
+      req.flash('success', ' Create Acount Successfully  ');
       return res.redirect('/users/profile');
     });
   })(req, res, next);
@@ -97,9 +97,9 @@ router.post('/uploadAvatar', upload.single('avatar'), (req, res) => {
 router.get('/logout', (req, res, next) => {
   req.logout((err) => {
     if (err) {
-      return next(err); //if proplem happen  error مرر الخطأ إذا حصل مشكلة أثناء الخروج
+      return next(err); //if proplem happen  error 
     }
-    req.flash('success', 'تم تسجيل الخروج بنجاح');
+    req.flash('success', 'You have been logged in successfully   ');
     res.redirect('/users/login'); // rturn from page signup 
   });
 });
