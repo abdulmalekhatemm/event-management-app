@@ -8,7 +8,7 @@ passport.serializeUser(function(user , done ){
 })
 
 
-// التسجيل
+// Login 
 passport.use('local.signup', new LocalStrategy(
   {
     usernameField: 'email',
@@ -66,7 +66,7 @@ passport.use('local.login', new LocalStrategy(
   }
 ));
 
-// تخزين واسترجاع المستخدم من الجلسة
+//Stor and Recovery Users From Session     
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -74,7 +74,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findById(id);
-    if (!user) return done(new Error('المستخدم غير موجود'));
+    if (!user) return done(new Error(' المستخدم غير موجود'));
     done(null, user);
   } catch (err) {
     done(err);

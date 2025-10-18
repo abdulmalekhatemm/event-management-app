@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// الاتصال بقاعدة البيانات
+// Conntedcted Be DataBase 
 mongoose.connect('mongodb://localhost:27017/eventsDB', {
 
  

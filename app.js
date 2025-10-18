@@ -1,5 +1,4 @@
 const express = require('express');
-// import express  from "express";
 const app = express();
 const events = require('./routes/event-route');
 const users = require('./routes/user-route');
