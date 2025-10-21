@@ -39,7 +39,7 @@ return done(null, newUser);
   }
 ));
 
-// تسجيل الدخول
+//Register SingUp  
 passport.use('local.login', new LocalStrategy(
   {
     usernameField: 'email',
@@ -53,7 +53,7 @@ passport.use('local.login', new LocalStrategy(
         return done(null, false, req.flash('error', 'المستخدم غير موجود'));
       }
 
-      const isMatch = user.comparePasswords(password, user.password); // تحقق من الدالة هذه
+      const isMatch = user.comparePasswords(password, user.password); //Chect From This Function  
       if (!isMatch) {
         return done(null, false, req.flash('error', 'كلمة السر غير صحيحة'));
       }

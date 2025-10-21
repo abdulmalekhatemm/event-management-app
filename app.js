@@ -29,14 +29,6 @@ app.use(session({
   cookie: { secure: false }
 }));
 app.use(flash());
-// app.use((req, res, next) => {
-//   res.locals.success = req.flash('success');
-//   res.locals.error = req.flash('error');
-//   res.locals.message = req.flash('message');
-//   res.locals.errors = req.flash('errors');
-//   next();
-// });
-//bring passport 
 app.use(passport.initialize());
 app.use(passport.session());
 // store user object 
