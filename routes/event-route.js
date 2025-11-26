@@ -23,8 +23,8 @@ router.post('/create',
   [
     check('title').isLength({ min: 5 }).withMessage('Title should be more than 5 characters'),
     check('description').isLength({ min: 5 }).withMessage('Description should be more than 5 characters'),
-    check('location').isLength({ min: 3 }).withMessage('Location should be more than 3 characters'),
-    check('date').isLength({ min: 5 }).withMessage('Date should be valid')
+    check('location').isLength({ min: 3 }).withMessage('Location Should Be More Than 3 characters'),
+    check('date').isLength({ min: 5 }).withMessage('Date Should Be Valid')
   ],
   isAuthenticated,
   async (req, res) => {
@@ -73,7 +73,7 @@ router.get('/edit/:id', isAuthenticated, async (req, res, next) => {
   }
 });
 
-//updata events 
+//Updata Events 
 router.post(
   '/update',
   [
@@ -109,7 +109,7 @@ router.post(
   }
 );
 
-// ✅ deleted event 
+// ✅ Deleted Event 
 router.delete('/delete/:id', isAuthenticated, async (req, res) => {
   try {
     const result = await Event.deleteOne({ _id: req.params.id });
@@ -162,7 +162,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// ✅ show single event
+// ✅ show single event one event just 
 router.get('/show/:id', async (req, res, next) => {
   try {
     const event = await Event.findById(req.params.id);

@@ -1,5 +1,4 @@
 const db = require('../config/database');
-// const Event = require('../models/Evet');
 const Event = require("../models/Event");
 
 let newEvent = [ new Event ({
@@ -82,3 +81,7 @@ async function saveProducts() {
 }
 
 saveProducts();
+
+/* 
+The this code for initals  for data 
+*/

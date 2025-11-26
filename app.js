@@ -8,11 +8,11 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const passportSetup = require('./config/passport-setup');
 
-// steting for views 
+// setting For Views 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-// بارس للبيانات
+// PARS For Data 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
