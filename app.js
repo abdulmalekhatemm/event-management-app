@@ -31,16 +31,16 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-// store user object 
+//The  Store user Is  Object 
 app.use(async (req, res, next) => {
   res.locals.user = req.user || null;
   next();
 });
-// files router 
+//The  Files router 
 app.use('/events', events);
 app.use('/users', users);
 
-// main router 
+// main router for get all events 
 app.get('/', (req, res) => {
   res.redirect('/events');
 });
