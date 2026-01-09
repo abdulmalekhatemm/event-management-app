@@ -1,4 +1,4 @@
- {
+{
   "name": "y",
   "version": "1.0.0",
   "description": "to show full project",
@@ -14,6 +14,7 @@
     "body-parser": "^2.2.0",
     "bootstrap": "^5.3.6",
     "connect-flash": "^0.1.1",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
