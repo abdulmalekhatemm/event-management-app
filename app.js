@@ -50,9 +50,9 @@
 // });
 
 
-require('dotenv').config(); // 🔥 مهم جدًا
+require('dotenv').config(); //  مهم جدًا
 
-const express = require('express');
+import express, { urlencoded, json } from 'express';
 const mongoose = require('mongoose');
 const app = express();
 
@@ -108,12 +108,12 @@ app.get('/', (req, res) => {
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('✅ MongoDB connected');
+    console.log(' MongoDB connected');
 
     app.listen(process.env.PORT || 3000, () => {
-      console.log('🚀 Server running');
+      console.log(' Server running');
     });
   })
   .catch(err => {
-    console.error('❌ MongoDB connection failed:', err);
+    console.error(' MongoDB connection failed:', err);
   });
